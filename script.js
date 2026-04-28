@@ -34,47 +34,42 @@ async function analyze() {
 
   output.innerHTML = "<span class='loading'>⚡ Analyzing...</span>";
 
-  const fairScore = calculateFairScore(exp, score);
-  const decision = getDecision(fairScore);
-  const bias = getBiasLevel(gender);
+  const fairScore = (parseFloat(exp) * 0.4) + (parseFloat(score) * 0.6);
+  let decision = "REJECTED";
+  if (fairScore > 70) decision = "SELECTED";
+  else if (fairScore > 50) decision = "CONSIDER";
 
- const response = await fetch(
-  "https://fairhireai.onrender.com/analyze",
-  {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      name,
-      gender,
-      exp,
-      score,
-      decision
-    })
-  }
-);
-
-Candidate: ${name}
-Experience: ${exp}
-Score: ${score}
-Decision: ${decision}`
-            }]
-          }]
+  try {
+    const response = await fetch(
+      "https://fairhireai.onrender.com/analyze",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          gender,
+          exp,
+          score,
+          decision
         })
       }
     );
 
     const data = await response.json();
-    const ai = data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+
+    const ai = data.result || "No response";
 
     output.innerHTML = `
       <div class="result-box"><b>🤖 AI Explanation</b><br>${ai}</div>
       <div class="result-box"><b>⚖ Decision</b><br>${decision}</div>
-      <div class="result-box"><b>📊 Bias Level</b><br>${bias}</div>
+      <div class="result-box"><b>📊 Bias Level</b><br>${gender}</div>
       <div class="result-box"><b>📈 Fair Score</b><br>${fairScore.toFixed(2)}</div>
-      <div class="result-box"><b>⚡ Status</b><br>Bias Removed System ✔</div>
+      <div class="result-box"><b>⚡ Status</b><br>Analysis Complete ✔</div>
     `;
 
   } catch (err) {
-    output.innerHTML = "❌ API Error";
+    output.innerHTML = "❌ Backend not responding";
   }
 }
