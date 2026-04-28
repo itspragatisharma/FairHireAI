@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FairHire AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">💼 FairHire AI</div>
+  <div class="toggle" onclick="toggleMode()">🌗 Toggle</div>
+</div>
+
+<div class="card">
+
+<h2>AI Hiring Analyzer</h2>
+<input id="name" placeholder="Candidate Name">
+
+<select id="gender">
+  <option value="">Select Gender</option>
+  <option>Male</option>
+  <option>Female</option>
+  <option>Other</option>
+</select>
+
+<input id="exp" placeholder="Experience (years)">
+<input id="score" placeholder="Skill Score (0-100)">
+
+<button onclick="analyze()">Analyze with AI</button>
+
+<div id="output" class="result-box">
+Results will appear here...
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
