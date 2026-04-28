@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f0f0f;
+  color: white;
+  text-align: center;
+}
+
 /* HERO */
 .hero {
   height: 100vh;
@@ -12,28 +20,48 @@
   color: gold;
 }
 
-.hero p {
-  font-size: 18px;
-  margin: 10px;
-}
-
-.hero button {
-  margin-top: 20px;
-  width: 200px;
-  align-self: center;
-}
-
 /* ABOUT */
 .about {
-  padding: 80px 20px;
+  padding: 60px;
   background: #111;
 }
 
-.about h2 {
-  color: gold;
+/* APP */
+.app {
+  padding: 40px;
 }
 
-/* APP SECTION */
-.app {
-  padding: 60px 20px;
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 10px;
+  width: 350px;
+  margin: auto;
+}
+
+/* INPUTS */
+input, select {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* BUTTON */
+button {
+  padding: 10px;
+  width: 90%;
+  background: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* RESULT */
+.result-box {
+  margin-top: 15px;
+  padding: 10px;
+  background: black;
+  border-radius: 8px;
 }
