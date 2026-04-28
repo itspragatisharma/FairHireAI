@@ -1,41 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>FairHire AI</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
 <body>
 
-<div class="header">
-  <div class="logo">💼 FairHire AI</div>
-  <div class="toggle" onclick="toggleMode()">🌗 Toggle</div>
-</div>
+<!-- 🔥 HERO SECTION -->
+<section class="hero">
+  <h1>FairHire AI</h1>
+  <p>Eliminating bias from hiring using Artificial Intelligence</p>
+  <button onclick="scrollToApp()">Get Started ↓</button>
+</section>
 
-<div class="card">
+<!-- 📊 ABOUT SECTION -->
+<section class="about">
+  <h2>Why FairHire AI?</h2>
+  <p>
+    Hiring decisions are often influenced by unconscious bias.
+    FairHire AI analyzes candidates based on skills and experience,
+    ensuring transparent and fair decisions using AI.
+  </p>
+</section>
 
-<h2>AI Hiring Analyzer</h2>
-<input id="name" placeholder="Candidate Name">
+<!-- 💼 APP SECTION -->
+<section class="app" id="app">
+  
+  <div class="card">
 
-<select id="gender">
-  <option value="">Select Gender</option>
-  <option>Male</option>
-  <option>Female</option>
-  <option>Other</option>
-</select>
+    <h2>AI Hiring Analyzer</h2>
 
-<input id="exp" placeholder="Experience (years)">
-<input id="score" placeholder="Skill Score (0-100)">
+    <input id="name" placeholder="Candidate Name">
 
-<button onclick="analyze()">Analyze with AI</button>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
 
-<div id="output" class="result-box">
-Results will appear here...
-</div>
+    <input id="exp" placeholder="Experience (years)">
+    <input id="score" placeholder="Skill Score (0-100)">
 
-</div>
+    <button onclick="analyze()">Analyze</button>
+
+    <div id="output" class="result-box">
+      Results will appear here...
+    </div>
+
+  </div>
+
+</section>
 
 <script src="script.js"></script>
+
 </body>
-</html>

@@ -36,6 +36,12 @@ async function analyze() {
       }
     );
 
+    function scrollToApp() {
+  document.getElementById("app").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
     const data = await response.json();
 
     output.innerHTML = `
